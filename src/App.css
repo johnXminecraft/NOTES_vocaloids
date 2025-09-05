@@ -1,5 +1,5 @@
 /* KT color palette */
-:root {
+[data-theme='teto'] {
     --background: #2a2433;
     --decoration: #854462;
     --text-primary: #d46a83;
@@ -7,12 +7,36 @@
     --accent: #9e8ba4;
 }
 /* HM color palette */
-[data-theme='light'] {
+[data-theme='miku'] {
     --background: #eff1f4;
     --decoration: #2896ae;
     --text-primary: #48b3c8;
     --text-secondary: #cee2e4;
-    --accent: #485152;
+    --accent: #8b9fa2;
+}
+/* KR color palette */
+[data-theme='rin'] {
+    --background: #3e3e3e;
+    --decoration: #ff9100;
+    --text-primary: #ffe600;
+    --text-secondary: #464646;
+    --accent: #fff261;
+}
+/* GM color palette */
+[data-theme='gumi'] {
+    --background: #223b1f;
+    --decoration: #ff0080;
+    --text-primary: #ff8800;
+    --text-secondary: #464646;
+    --accent: #00ffd9;
+}
+/* UU color palette */
+[data-theme='defoko'] {
+    --background: #3c3155;
+    --decoration: #7536b5;
+    --text-primary: #6948cd;
+    --text-secondary: #C5A3BF;
+    --accent: #9267BE;
 }
 
 /* main container */

@@ -114,10 +114,14 @@ function App() {
   }
 
   const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-  const [theme, setTheme] = useLocalStorage('theme', defaultDark ? 'dark' : 'light')
+  const [theme, setTheme] = useLocalStorage('theme', defaultDark ? 'teto' : 'miku')
         
   function switchTheme() {
-      const newTheme = theme === 'light' ? 'dark' : 'light'
+      const newTheme = 
+        theme === 'miku' ? 'teto' : 
+        (theme === 'teto' ? 'rin' : 
+        (theme === 'rin' ? 'gumi' : 
+        (theme === 'gumi' ? 'defoko' : 'miku')))
       setTheme(newTheme)
   }
 
@@ -154,7 +158,12 @@ function App() {
       </Container>
       <Container className="d-flex flex-row-reverse w-100 pb-4">
         <Button onClick={switchTheme}>
-          {theme === 'light' ? 'Miku' : 'Teto'}
+          {
+            theme === 'miku' ? 'Miku' : 
+            (theme === 'teto' ? 'Teto' : 
+            (theme === 'rin' ? 'Rin' : 
+            (theme === 'gumi' ? 'GUMI' : 'Defoko')))
+          }
         </Button>
       </Container>
     </Container>
