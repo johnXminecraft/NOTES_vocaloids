@@ -1,0 +1,15 @@
+{
+    "short_name": "NKT",
+    "name": "NOTES | Kasane Teto",
+    "icons": [
+        {
+        "src": "/icon.png",
+        "sizes": "1080x1080",
+        "type": "image/png"
+        }
+    ],
+    "start_url": ".",
+    "display": "standalone",
+    "theme_color": "black",
+    "background_color": "white"
+}
