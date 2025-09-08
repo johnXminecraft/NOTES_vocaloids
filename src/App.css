@@ -47,18 +47,31 @@
     --accent: #714a53;
 }
 
+/* bounce properties */
 [data-ibt='no-bounce'] {
-    --image-bottom-pos: 0;
+    --image-bottom-pos: 0vh;
 }
 [data-ibt='bounce'] {
     --image-bottom-pos: 7vh;
 }
 
+/* sticker visibility */
+[data-siv='stickerOn'] {
+    --display-sticker: block;
+}
+[data-siv='stickerOff'] {
+    --display-sticker: none;
+}
+
 /* main container */
 .main-container {
+    display: flex;
+    flex-direction: column;
     background-color: var(--background);
-    display: inline-block;
     min-width: 100%;
+}
+.content {
+    flex: 1;
 }
 
 /* transition */
@@ -153,11 +166,37 @@ h1, h2, h3, h4, h5, h6, p {
     color: var(--text-secondary) !important;
 }
 
+/* switch theme button */
+/* make it a pop-up settings window */
+.button-container {
+    position: fixed;
+    bottom: 15vh;
+    right: 2vh;
+    z-index: 1000;
+}
+
+/* sticker */
 .image-container {
+    display: var(--display-sticker);
     position: fixed;
     bottom: var(--image-bottom-pos);
+    left: -3vh;
     height: 30%;
     width: auto;
+    z-index: 1000;
+}
+
+/* footer */
+.footer {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 15vh;
+    border-top: 1px solid var(--decoration);
+    border-radius: 1vw;
+    text-align: center;
+    background-color: var(--background);
+    z-index: 0;
 }
 
 /* bs modal */

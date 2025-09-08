@@ -1,5 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css"
-import { Button, Container, Image } from "react-bootstrap"
+import { Button, Col, Container, Image, Row, Stack } from "react-bootstrap"
 import { Route, Routes, Navigate } from "react-router-dom"
 import { NewNote } from "./NewNote"
 import { useLocalStorage } from "./useLocalStorage"
@@ -130,7 +130,7 @@ function App() {
   
   useEffect(() => {
     const bounceInterval = setInterval(() => {
-      if ((Math.random() * 1000) > 900) {
+      if (((Math.random() * 1000) > 900) && stickerIsOn) {
         setBounce(prev => !prev)
         setTimeout(() => {
           setBounce(prev => !prev)
@@ -140,9 +140,15 @@ function App() {
     return () => clearInterval(bounceInterval)
   }, [])
 
+  const [stickerIsOn, setStickerVisibility] = useState<boolean>(true)
+        
+  function switchStickerVisibility() {
+      setStickerVisibility(prev => !prev)
+  }
+
   return (
     <Container className="main-container p-0 m-0 min-vh-100 h-auto w-100" data-theme={theme}>
-      <Container className="py-4">
+      <Container className="content py-4">
         <Routes>
           <Route path="/" element={<NoteList 
               availableTags={tags} 
@@ -171,18 +177,35 @@ function App() {
           <Route path="*" element={<Navigate to="/error404" />} />
         </Routes>
       </Container>
-      <Container className="d-flex flex-row-reverse w-100 pb-4">
-        <Button onClick={switchTheme}>
-          {
-            theme === 'miku' ? 'Miku' : 
-            (theme === 'teto' ? 'Teto' : 
-            (theme === 'rin' ? 'Rin' : 
-            (theme === 'gumi' ? 'GUMI' : 
-            (theme === 'defoko' ? 'Defoko' : 'IA'))))
-          }
-        </Button>
+      <Container>
+        <Row className="align-items-center mb-4">
+          <Col>
+            <h1></h1>
+          </Col>
+          <Col className="button-container d-flex pb-4" xs="auto">
+            <Stack gap={2} direction="horizontal">
+              <Button onClick={switchStickerVisibility}>
+                {
+                  stickerIsOn === true ? 'Sticker Off' : 'Sticker On'
+                }
+              </Button>
+              <Button onClick={switchTheme}>
+                {
+                  theme === 'miku' ? 'Miku' :                   (theme === 'teto' ? 'Teto' : 
+                  (theme === 'rin' ? 'Rin' : 
+                  (theme === 'gumi' ? 'GUMI' : 
+                  (theme === 'defoko' ? 'Defoko' : 'IA'))))
+                }
+              </Button>
+            </Stack>
+          </Col>
+        </Row>
       </Container>
-      <Container className="image-container mb-4" data-ibt={bounce === true ? 'bounce' : 'no-bounce'}>
+      <Container 
+        className="image-container mb-4" 
+        data-ibt={bounce === true ? 'bounce' : 'no-bounce'}
+        data-siv={stickerIsOn === true ? 'stickerOn' : 'stickerOff'}
+      >
           <Image src={
             theme === 'miku' ? '/miku.png' : 
             (theme === 'teto' ? '/teto.png' : 
@@ -190,6 +213,9 @@ function App() {
             (theme === 'gumi' ? '/gumi.png' : 
             (theme === 'defoko' ? '/defoko.png' : '/ia.png'))))
           } height="100%" />
+      </Container>
+      <Container className="footer d-flex w-100">
+          <h5>&copy; 2025 johnXminecraft</h5>
       </Container>
     </Container>
   )
