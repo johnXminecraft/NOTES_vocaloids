@@ -127,19 +127,14 @@ function App() {
   }
 
   const [bounce, setBounce] = useState<boolean>(false)
-  // make this mf jump like a human
+  
   useEffect(() => {
     const bounceInterval = setInterval(() => {
-      if ((Math.random() * 1000) > 500) {
+      if ((Math.random() * 1000) > 900) {
         setBounce(prev => !prev)
-        // smth wrong with the timer i know it
-        useEffect(() => {
-          const timer = setTimeout(() => {
-            
-          }, 200)
+        setTimeout(() => {
           setBounce(prev => !prev)
-          return () => clearTimeout(timer)
-        }, [])
+        }, 200)
       }
     }, 1000)
     return () => clearInterval(bounceInterval)

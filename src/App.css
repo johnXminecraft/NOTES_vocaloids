@@ -51,7 +51,7 @@
     --image-bottom-pos: 0;
 }
 [data-ibt='bounce'] {
-    --image-bottom-pos: 5vh;
+    --image-bottom-pos: 7vh;
 }
 
 /* main container */
