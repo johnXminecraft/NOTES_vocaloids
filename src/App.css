@@ -34,9 +34,24 @@
 [data-theme='defoko'] {
     --background: #3c3155;
     --decoration: #7536b5;
-    --text-primary: #6948cd;
+    --text-primary: #ffffff;
     --text-secondary: #C5A3BF;
     --accent: #9267BE;
+}
+/* IA color palette */
+[data-theme='ia'] {
+    --background: #dc9191;
+    --decoration: #80656d;
+    --text-primary: #3e2a33;
+    --text-secondary: #f4e8d8;
+    --accent: #714a53;
+}
+
+[data-ibt='no-bounce'] {
+    --image-bottom-pos: 0;
+}
+[data-ibt='bounce'] {
+    --image-bottom-pos: 5vh;
 }
 
 /* main container */
@@ -136,6 +151,13 @@ h1, h2, h3, h4, h5, h6, p {
 .bg-primary {
     background-color: var(--decoration) !important;
     color: var(--text-secondary) !important;
+}
+
+.image-container {
+    position: fixed;
+    bottom: var(--image-bottom-pos);
+    height: 30%;
+    width: auto;
 }
 
 /* bs modal */
